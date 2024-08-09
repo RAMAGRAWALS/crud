@@ -4,7 +4,8 @@ const Note = require('../models/Note'); // Assume Note model is in the models fo
 const { protect } = require('../middleware/authMiddleware'); // Protect middleware
 
 // Create Note
-router.post('/notes', protect, async (req, res) => {
+router.post('/notes', async (req, res) => {
+  console.log(req.body);
   try {
     const note = new Note({
       user: req.user._id,
